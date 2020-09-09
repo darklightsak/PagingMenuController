@@ -8,78 +8,78 @@
 
 import UIKit
 
-public class PagingMenuOptions {
-    public var defaultPage = 0
-    public var scrollEnabled = true // in case of using swipable cells, set false
-    public var backgroundColor = UIColor.whiteColor()
-    public var selectedBackgroundColor = UIColor.whiteColor()
-    public var textColor = UIColor.lightGrayColor()
-    public var selectedTextColor = UIColor.blackColor()
-    public var font = UIFont.systemFontOfSize(16)
-    public var selectedFont = UIFont.systemFontOfSize(16)
-    public var menuPosition: MenuPosition = .Top
-    public var menuHeight: CGFloat = 50
-    public var menuItemMargin: CGFloat = 20
-    public var menuItemDividerImage: UIImage?
-    public var animationDuration: NSTimeInterval = 0.3
-    public var deceleratingRate: CGFloat = UIScrollViewDecelerationRateFast
-    public var menuDisplayMode = MenuDisplayMode.Standard(widthMode: PagingMenuOptions.MenuItemWidthMode.Flexible, centerItem: false, scrollingMode: PagingMenuOptions.MenuScrollingMode.PagingEnabled)
-    public var menuSelectedItemCenter = true
-    public var menuItemMode = MenuItemMode.Underline(height: 3, color: UIColor.blueColor(), horizontalPadding: 0, verticalPadding: 0)
-    public var lazyLoadingPage: LazyLoadingPage = .Three
-    public var menuControllerSet: MenuControllerSet = .Multiple
-    public var menuComponentType: MenuComponentType = .All
+open class PagingMenuOptions {
+    open var defaultPage = 0
+    open var scrollEnabled = true // in case of using swipable cells, set false
+    open var backgroundColor = UIColor.white
+    open var selectedBackgroundColor = UIColor.white
+    open var textColor = UIColor.lightGray
+    open var selectedTextColor = UIColor.black
+    open var font = UIFont.systemFont(ofSize: 16)
+    open var selectedFont = UIFont.systemFont(ofSize: 16)
+    open var menuPosition: MenuPosition = .top
+    open var menuHeight: CGFloat = 50
+    open var menuItemMargin: CGFloat = 20
+    open var menuItemDividerImage: UIImage?
+    open var animationDuration: TimeInterval = 0.3
+    open var deceleratingRate: CGFloat = UIScrollView.DecelerationRate.fast.rawValue
+    open var menuDisplayMode = MenuDisplayMode.standard(widthMode: PagingMenuOptions.MenuItemWidthMode.flexible, centerItem: false, scrollingMode: PagingMenuOptions.MenuScrollingMode.pagingEnabled)
+    open var menuSelectedItemCenter = true
+    open var menuItemMode = MenuItemMode.underline(height: 3, color: UIColor.blue, horizontalPadding: 0, verticalPadding: 0)
+    open var lazyLoadingPage: LazyLoadingPage = .three
+    open var menuControllerSet: MenuControllerSet = .multiple
+    open var menuComponentType: MenuComponentType = .all
     internal var menuItemCount = 0
     internal let minumumSupportedViewCount = 1
     internal let dummyMenuItemViewsSet = 3
-    internal var menuItemViewContent: MenuItemViewContent = .Text
+    internal var menuItemViewContent: MenuItemViewContent = .text
     
     public enum MenuPosition {
-        case Top
-        case Bottom
+        case top
+        case bottom
     }
     
     public enum MenuScrollingMode {
-        case ScrollEnabled
-        case ScrollEnabledAndBouces
-        case PagingEnabled
+        case scrollEnabled
+        case scrollEnabledAndBouces
+        case pagingEnabled
     }
     
     public enum MenuItemWidthMode {
-        case Flexible
-        case Fixed(width: CGFloat)
+        case flexible
+        case fixed(width: CGFloat)
     }
     
     public enum MenuDisplayMode {
-        case Standard(widthMode: MenuItemWidthMode, centerItem: Bool, scrollingMode: MenuScrollingMode)
-        case SegmentedControl
-        case Infinite(widthMode: MenuItemWidthMode, scrollingMode: MenuScrollingMode)
+        case standard(widthMode: MenuItemWidthMode, centerItem: Bool, scrollingMode: MenuScrollingMode)
+        case segmentedControl
+        case infinite(widthMode: MenuItemWidthMode, scrollingMode: MenuScrollingMode)
     }
     
     public enum MenuItemMode {
-        case None
-        case Underline(height: CGFloat, color: UIColor, horizontalPadding: CGFloat, verticalPadding: CGFloat)
-        case RoundRect(radius: CGFloat, horizontalPadding: CGFloat, verticalPadding: CGFloat, selectedColor: UIColor)
+        case none
+        case underline(height: CGFloat, color: UIColor, horizontalPadding: CGFloat, verticalPadding: CGFloat)
+        case roundRect(radius: CGFloat, horizontalPadding: CGFloat, verticalPadding: CGFloat, selectedColor: UIColor)
     }
     
     public enum LazyLoadingPage {
-        case One
-        case Three
+        case one
+        case three
     }
     
     public enum MenuControllerSet {
-        case Single
-        case Multiple
+        case single
+        case multiple
     }
     
     public enum MenuComponentType {
-        case MenuView
-        case MenuController
-        case All
+        case menuView
+        case menuController
+        case all
     }
     
     internal enum MenuItemViewContent {
-        case Text, Image
+        case text, image
     }
     
     public init() {}
